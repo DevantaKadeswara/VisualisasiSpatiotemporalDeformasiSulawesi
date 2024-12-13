@@ -1,0 +1,1666 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>PETA DEFORMASI PULAU SULAWESI</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+       
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/L.Control.Layers.Tree.min.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+
+
+        <script src="data/SesarSulawesi_1.js"></script>
+        <script src="data/CORSSulawesi_3.js"></script>
+        <script src="data/CORS2018_4.js"></script>
+        <script src="data/CORS2017_5.js"></script>
+        <script src="data/CORS2016_6.js"></script>
+        <script src="data/Vertikal2018_1.js"></script>
+        <script src="data/Vertikal2017_2.js"></script>
+        <script src="data/Vertikal2016_3.js"></script>
+        <script src="data/horizontal_2018_8.js"></script>
+        <script src="data/horizontal_2017_9.js"></script>
+        <script src="data/horizontal_2016_10.js"></script>
+           
+
+        <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        </style>
+
+    </head>
+
+    <body>
+      
+      <main>
+
+        <!-- Navigation-->
+        <header class="site-header">
+          <div class="site-identity">
+            <a><img src="https://luk.staff.ugm.ac.id/logo/UGM/Resmi/Hitam-putih.gif" alt="PETA DEFORMASI PULAU SULAWESI" /></a>
+            <h1><a href="#" class="judul">PETA DEFORMASI PULAU SULAWESI</a></h1>
+          </div>  
+          <nav class="site-navigation">
+            <ul class="nav">
+              <li><a>September - Desember 2024</a></li> 
+            </ul>
+          </nav>
+        </header>
+        <div class="" style="display: flex;align-items: start;justify-content: start;height: 100%">
+            <aside style="height: 100%;">
+                <nav class="sidebar" style="height: 100%;">
+                <div class="menu_content">
+                    <div class="Tampilan">
+                    <ul class="menu_items">
+                        <li class="item">
+                            <a href="#" class="nav_link">
+                                <span class="navlink_icon">
+                                    <i class="bx bx-layer"></i>
+                                </span>
+                                <span class="navlink">Layer</span>
+                            </a>
+                            <!-- Checkbox -->
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="CorsCheckbox" style="margin-right: 8px;" />
+                                <span class="checkbox-text">Stasiun CORS</span>
+                            </label>
+
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="SesarCheckbox" style="margin-right: 8px;" />
+                                <span class="checkbox-text">Sesar Sulawesi</span>
+                            </label>
+
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="HorizontalCheckbox" style="margin-right: 8px;" />
+                                <span class="checkbox-text">Deformasi Horizontal</span>
+                            </label>
+
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="VertikalCheckbox" style="margin-right: 8px;"/>
+                                <span class="checkbox-text">Deformasi Vertikal</span>
+                            </label>
+
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="DilatationCheckbox" style="margin-right: 8px;"/>
+                                <span class="checkbox-text">Dilatation</span>
+                            </label>
+
+                            <label class="checkbox-label" style="margin-left: 20px; display: flex; align-items: center;">
+                                <input type="checkbox" id="MaxshrCheckbox" style="margin-right: 8px;"/>
+                                <span class="checkbox-text">Maxshr</span>
+                            </label>
+                        </li>
+
+                        <li class="item">
+                            <a href="#" class="nav_link">
+                              <span class="navlink_icon">
+                                <i class="bx bx-filter"></i>
+                              </span>
+                              <span class="navlink">Legenda</span>
+                            </a>
+                            
+                            <!-- Kontainer untuk gambar -->
+                            <div id="LegendaContent" style="margin-left: 20px; display: none;">
+                                <img id="HorizontalLegend" src="images/horizontal.jpg" alt="Deformasi Horizontal" style="display: none; max-width: 100px;" />
+                                <img id="VertikalLegend" src="images/vertikal.jpg" alt="Deformasi Vertikal" style="display: none; max-width: 100px;" />
+                                <img id="SesarLegend" src="images/sesar.jpg" alt="SesarSulawesi" style="display: none; max-width: 100px;" />
+                                <img id="CORSLegend1" src="images/CORS2016_16.jpg" alt="StasiunCors" style="display: none; max-width: 100px;" />
+                            </div>
+                            <div id="DilatationLegends" style="display: none;">
+                                <img id="DilatationLegend1" src="images/dilatation_2016.jpg" alt="Dilatation" style="display: none; max-width: 100px;" />
+                                <img id="DilatationLegend2" src="images/dilatation_2017.jpg" alt="Dilatation" style="display: none; max-width: 100px;" />
+                                <img id="DilatationLegend3" src="images/dilatation_2018.jpg" alt="Dilatation" style="display: none; max-width: 100px;" />
+                            </div>
+                            <div id="MaxshrLegends" style="display: none;">
+                                <img id="MaxshrLegend1" src="images/maxshr_2016.jpg" alt="Maxshr" style="display: none; max-width: 100px;" />
+                                <img id="MaxshrLegend2" src="images/maxshr_2017.jpg" alt="Maxshr" style="display: none; max-width: 100px;" />
+                                <img id="MaxshrLegend3" src="images/maxshr_2018.jpg" alt="Maxshr" style="display: none; max-width: 100px;" />
+                            </div>
+
+                        </li>
+                    </ul>
+                    </div>
+        
+                    <div class="bottom_content">
+                    <div class="bottom expand_sidebar">
+                        <span> Expand</span>
+                        <i class='bx bx-log-in' ></i>
+                    </div>
+                    <div class="bottom collapse_sidebar">
+                        <span> Collapse</span>
+                        <i class='bx bx-log-out'></i>
+                    </div>
+                    </div>
+                </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="top: 74px; bottom: 20px; width: 400px">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRight">Informasi</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div id="offcanvasContent"></div>
+                    </div>
+                </div>
+                
+            </aside>
+
+            <!-- Slider Bar -->
+            <div id="map" class="map"></div>
+        </diV>
+        <div id="sliderContainer" class="range">
+            <label for="customRange2" class="form-label">Pilih Tahun: <span id="yearLabel">2016-2018</span></label>
+            <input type="range" class="form-range" min="0" max="2" id="customRange2" style="width: 100%;" value="0">
+        
+            <!-- Label tahun di bawah slider -->
+            <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 14px;">
+                <span>2016</span>
+                <span>2017</span>
+                <span>2018</span>
+            </div>
+        </div>
+
+        <footer>
+          <p>Data yang Digunakan Data Time Series 8 CORS Di Sulawesi Tahun 2016 - 2018</p>
+        </footer>
+      </main>
+
+      <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+        if (typeof highlightLayer.setStyle === 'function') {
+        if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
+            highlightLayer.setStyle({
+                color: '#ffff00',
+            });
+        } else {
+            highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1,
+            });
+        }
+    } else {
+        console.error('Layer does not support setStyle:', highlightLayer);
+    }
+        }
+
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[-9.392267586576084,114.72090195174414],[2.0298932649239116,130.286256553105]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        
+        // remove popup's row if "visible-with-data"
+        function removeEmptyRowsFromPopupContent(content, feature) {
+         var tempDiv = document.createElement('div');
+         tempDiv.innerHTML = content;
+         var rows = tempDiv.querySelectorAll('tr');
+         for (var i = 0; i < rows.length; i++) {
+             var td = rows[i].querySelector('td.visible-with-data');
+             var key = td ? td.id : '';
+             if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
+                 rows[i].parentNode.removeChild(rows[i]);
+             }
+         }
+         return tempDiv.innerHTML;
+        }
+        // add class to format popup if it contains media
+		function addClassToPopupIfMedia(content, popup) {
+			var tempDiv = document.createElement('div');
+			tempDiv.innerHTML = content;
+			if (tempDiv.querySelector('td img')) {
+				popup._contentNode.classList.add('media');
+					// Delay to force the redraw
+					setTimeout(function() {
+						popup.update();
+					}, 10);
+			} else {
+				popup._contentNode.classList.remove('media');
+			}
+		}
+        var zoomControl = L.control.zoom({
+            position: 'topleft'
+        }).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+
+        //Basemaps
+        map.createPane('pane_EsriWorldImagery_0');
+        map.getPane('pane_EsriWorldImagery_0').style.zIndex = 400;
+        var layer_EsriWorldImagery_0 = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_EsriWorldImagery_0',
+            opacity: 1.0,
+            attribution: '<a href="https://wiki.openstreetmap.org/wiki/Esri">Terms & Feedback</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_EsriWorldImagery_0;
+        map.addLayer(layer_EsriWorldImagery_0);
+        map.createPane('pane_ESRIGraydark_1');
+        map.getPane('pane_ESRIGraydark_1').style.zIndex = 400;
+        var layer_ESRIGraydark_1 = L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_ESRIGraydark_1',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_ESRIGraydark_1;
+        map.addLayer(layer_ESRIGraydark_1);
+        map.createPane('pane_OpenStreetMap_2');
+        map.getPane('pane_OpenStreetMap_2').style.zIndex = 400;
+        var layer_OpenStreetMap_2 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OpenStreetMap_2',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 19
+        });
+        layer_OpenStreetMap_2;
+        map.addLayer(layer_OpenStreetMap_2);
+
+
+        // Maximum SHR
+        map.createPane('pane_maxshr_2018_2');
+        map.getPane('pane_maxshr_2018_2').style.zIndex = 401;
+        var img_maxshr_2018_2 = 'data/maxshr_2018_2.png';
+        var img_bounds_maxshr_2018_2 = [[-7.7598008784,117.03835253258005],[5.56585717644,127.16412348246006]];
+        var layer_maxshr_2018_2 = new L.imageOverlay(img_maxshr_2018_2,
+                                              img_bounds_maxshr_2018_2,
+                                              {pane: 'pane_maxshr_2018_2'});
+        bounds_group.addLayer(layer_maxshr_2018_2);
+        map.createPane('pane_maxshr_2017_3');
+        map.getPane('pane_maxshr_2017_3').style.zIndex = 402;
+        var img_maxshr_2017_3 = 'data/maxshr_2017_3.png';
+        var img_bounds_maxshr_2017_3 = [[-7.759512516799999,117.03770484560006],[5.566650281059999,127.16450625513006]];
+        var layer_maxshr_2017_3 = new L.imageOverlay(img_maxshr_2017_3,
+                                              img_bounds_maxshr_2017_3,
+                                              {pane: 'pane_maxshr_2017_3'});
+        bounds_group.addLayer(layer_maxshr_2017_3);
+        map.createPane('pane_maxshr_2016_4');
+        map.getPane('pane_maxshr_2016_4').style.zIndex = 403;
+        var img_maxshr_2016_4 = 'data/maxshr_2016_4.png';
+        var img_bounds_maxshr_2016_4 = [[-7.7596661648000005,117.03838031278988],[5.56676050766,127.16398063956987]];
+        var layer_maxshr_2016_4 = new L.imageOverlay(img_maxshr_2016_4,
+                                              img_bounds_maxshr_2016_4,
+                                              {pane: 'pane_maxshr_2016_4'});
+        bounds_group.addLayer(layer_maxshr_2016_4);
+        map.addLayer(layer_maxshr_2016_4);
+
+
+        //Dilatation
+        map.createPane('pane_dilatation_2018_2');
+        map.getPane('pane_dilatation_2018_2').style.zIndex = 404;
+        var img_dilatation_2018_2 = 'data/Dilatation_2018_2.png';
+        var img_bounds_dilatation_2018_2 = [[-7.759760603999999,117.03831200657997],[5.5658282889,127.16399293631997]];
+        var layer_dilatation_2018_2 = new L.imageOverlay(img_dilatation_2018_2,
+                                              img_bounds_dilatation_2018_2,
+                                              {pane: 'pane_dilatation_2018_2'});
+        bounds_group.addLayer(layer_dilatation_2018_2);
+        map.createPane('pane_dilatation_2017_3');
+        map.getPane('pane_dilatation_2017_3').style.zIndex = 405;
+        var img_dilatation_2017_3 = 'data/Dilatation_2017_3.png';
+        var img_bounds_dilatation_2017_3 =  [[-7.7598704856,117.03843414656005],[5.56590710346,127.16477953728005]];
+        var layer_dilatation_2017_3 = new L.imageOverlay(img_dilatation_2017_3,
+                                              img_bounds_dilatation_2017_3,
+                                              {pane: 'pane_dilatation_2017_3'});
+        bounds_group.addLayer(layer_dilatation_2017_3);
+        map.createPane('pane_dilatation_2016_4');
+        map.getPane('pane_dilatation_2016_4').style.zIndex = 406;
+        var img_dilatation_2016_4 = 'data/Dilatation_2016_4.png';
+        var img_bounds_dilatation_2016_4 = [[-7.759732124800001,117.03834905622998],[5.56680782716,127.16460056965997]];
+        var layer_dilatation_2016_4 = new L.imageOverlay(img_dilatation_2016_4,
+                                              img_bounds_dilatation_2016_4,
+                                              {pane: 'pane_dilatation_2016_4'});
+        bounds_group.addLayer(layer_dilatation_2016_4);
+        map.addLayer(layer_dilatation_2016_4);
+
+        //Vertikal
+        function pop_Vertikal2018_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="X"colspan="2"><strong>X</strong><br />' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Y</th>\
+                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Z</th>\
+                        <td>' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stasiun</th>\
+                        <td>' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecepatan Vertikal</th>\
+                        <td>' + (feature.properties['Kecepatan Vertikal'] !== null ? autolinker.link(feature.properties['Kecepatan Vertikal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Vertikal2018_1_0(feature) {
+            if (feature.properties['Kecepatan Vertikal'] >= -27.767000 && feature.properties['Kecepatan Vertikal'] <= -5.109000 ) {
+                return {
+                pane: 'pane_Vertikal2018_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,205,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -5.109000 && feature.properties['Kecepatan Vertikal'] <= -2.105000 ) {
+                return {
+                pane: 'pane_Vertikal2018_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,231,154,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -2.105000 && feature.properties['Kecepatan Vertikal'] <= 2.734000 ) {
+                return {
+                pane: 'pane_Vertikal2018_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,207,103,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 2.734000 && feature.properties['Kecepatan Vertikal'] <= 6.692000 ) {
+                return {
+                pane: 'pane_Vertikal2018_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,182,52,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 6.692000 && feature.properties['Kecepatan Vertikal'] <= 15.864011 ) {
+                return {
+                pane: 'pane_Vertikal2018_1',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,1,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_Vertikal2018_1');
+        map.getPane('pane_Vertikal2018_1').style.zIndex = 407;
+        map.getPane('pane_Vertikal2018_1').style['mix-blend-mode'] = 'normal';
+        var layer_Vertikal2018_1 = new L.geoJson(json_Vertikal2018_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Vertikal2018_1',
+            layerName: 'layer_Vertikal2018_1',
+            pane: 'pane_Vertikal2018_1',
+            onEachFeature: pop_Vertikal2018_1,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Vertikal2018_1_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Vertikal2018_1);
+        map.addLayer(layer_Vertikal2018_1);
+        function pop_Vertikal2017_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">X</th>\
+                        <td>' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Y</th>\
+                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Z</th>\
+                        <td>' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stasiun</th>\
+                        <td>' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecepatan Vertikal</th>\
+                        <td>' + (feature.properties['Kecepatan Vertikal'] !== null ? autolinker.link(feature.properties['Kecepatan Vertikal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Vertikal2017_2_0(feature) {
+            if (feature.properties['Kecepatan Vertikal'] >= -27.800000 && feature.properties['Kecepatan Vertikal'] <= -5.109000 ) {
+                return {
+                pane: 'pane_Vertikal2017_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,205,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -5.109000 && feature.properties['Kecepatan Vertikal'] <= -2.105000 ) {
+                return {
+                pane: 'pane_Vertikal2017_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,231,154,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -2.105000 && feature.properties['Kecepatan Vertikal'] <= 2.734000 ) {
+                return {
+                pane: 'pane_Vertikal2017_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,206,103,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 2.734000 && feature.properties['Kecepatan Vertikal'] <= 6.692000 ) {
+                return {
+                pane: 'pane_Vertikal2017_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,182,52,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 6.692000 && feature.properties['Kecepatan Vertikal'] <= 15.864000 ) {
+                return {
+                pane: 'pane_Vertikal2017_2',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,1,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_Vertikal2017_2');
+        map.getPane('pane_Vertikal2017_2').style.zIndex = 408;
+        map.getPane('pane_Vertikal2017_2').style['mix-blend-mode'] = 'normal';
+        var layer_Vertikal2017_2 = new L.geoJson(json_Vertikal2017_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Vertikal2017_2',
+            layerName: 'layer_Vertikal2017_2',
+            pane: 'pane_Vertikal2017_2',
+            onEachFeature: pop_Vertikal2017_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Vertikal2017_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Vertikal2017_2);
+        map.addLayer(layer_Vertikal2017_2);
+        function pop_Vertikal2016_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="X"colspan="2"><strong>X</strong><br />' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Arah Horizontal'] !== null ? autolinker.link(feature.properties['Arah Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Kecepatan Horizontal'] !== null ? autolinker.link(feature.properties['Kecepatan Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Kecepatan Vertikal'] !== null ? autolinker.link(feature.properties['Kecepatan Vertikal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Vertikal2016_3_0(feature) {
+            if (feature.properties['Kecepatan Vertikal'] >= -27.767000 && feature.properties['Kecepatan Vertikal'] <= -5.109000 ) {
+                return {
+                pane: 'pane_Vertikal2016_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,255,205,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -5.109000 && feature.properties['Kecepatan Vertikal'] <= -2.105000 ) {
+                return {
+                pane: 'pane_Vertikal2016_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(254,231,154,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= -2.105000 && feature.properties['Kecepatan Vertikal'] <= 2.734000 ) {
+                return {
+                pane: 'pane_Vertikal2016_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,206,103,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 2.734000 && feature.properties['Kecepatan Vertikal'] <= 6.692000 ) {
+                return {
+                pane: 'pane_Vertikal2016_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,182,52,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Vertikal'] >= 6.692000 && feature.properties['Kecepatan Vertikal'] <= 15.864000 ) {
+                return {
+                pane: 'pane_Vertikal2016_3',
+                radius: 16.0,
+                opacity: 1,
+                color: 'rgba(83,83,83,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,1,1.0)',
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_Vertikal2016_3');
+        map.getPane('pane_Vertikal2016_3').style.zIndex = 409;
+        map.getPane('pane_Vertikal2016_3').style['mix-blend-mode'] = 'normal';
+        var layer_Vertikal2016_3 = new L.geoJson(json_Vertikal2016_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Vertikal2016_3',
+            layerName: 'layer_Vertikal2016_3',
+            pane: 'pane_Vertikal2016_3',
+            onEachFeature: pop_Vertikal2016_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Vertikal2016_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Vertikal2016_3);
+        map.addLayer(layer_Vertikal2016_3);
+
+//Horizontal
+    function pop_horizontal_2018_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">X</th>\
+                        <td>' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Y</th>\
+                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Z</th>\
+                        <td>' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stasiun</th>\
+                        <td>' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Arah Horizontal</th>\
+                        <td>' + (feature.properties['Arah Horizontal'] !== null ? autolinker.link(feature.properties['Arah Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecepatan Horizontal</th>\
+                        <td>' + (feature.properties['Kecepatan Horizontal'] !== null ? autolinker.link(feature.properties['Kecepatan Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+
+        function style_horizontal_2018_8_0(feature) {
+            const azimuth = feature.properties['Arah Horizontal'];
+
+            if (feature.properties['Kecepatan Horizontal'] >= 5.958000 && feature.properties['Kecepatan Horizontal'] <= 15.169000 ) {
+                return {
+                pane: 'pane_horizontal_2018_8',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2018_8.svg',
+            iconSize: [22.8, 22.8],
+            iconAnchor: [22.8 / 2, 22.8]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 15.169000 && feature.properties['Kecepatan Horizontal'] <= 21.080000 ) {
+                return {
+                pane: 'pane_horizontal_2018_8',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2018_8.svg',
+            iconSize: [26.6, 26.6],
+            iconAnchor: [26.6 / 2, 26.6]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 21.080000 && feature.properties['Kecepatan Horizontal'] <= 23.344000 ) {
+                return {
+                pane: 'pane_horizontal_2018_8',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2018_8.svg',
+            iconSize: [30.4, 30.4],
+            iconAnchor: [30.4 / 2, 30.4]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 23.344000 && feature.properties['Kecepatan Horizontal'] <= 27.377000 ) {
+                return {
+                pane: 'pane_horizontal_2018_8',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2018_8.svg',
+            iconSize: [34.199999999999996, 34.199999999999996],
+            iconAnchor: [34.2 / 2, 34.2]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 27.377000 && feature.properties['Kecepatan Horizontal'] <= 53.931704 ) {
+                return {
+                pane: 'pane_horizontal_2018_8',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2018_8.svg',
+            iconSize: [38.0, 38.0],
+            iconAnchor: [38.0 / 2, 38.0]
+        }),
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_horizontal_2018_8');
+        map.getPane('pane_horizontal_2018_8').style.zIndex = 410;
+        map.getPane('pane_horizontal_2018_8').style['mix-blend-mode'] = 'normal';
+        var layer_horizontal_2018_8 = new L.geoJson(json_Horizontal2018_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Horizontal2018_3',
+            layerName: 'layer_horizontal_2018_8',
+            pane: 'pane_horizontal_2018_8',
+            onEachFeature: pop_horizontal_2018_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_horizontal_2018_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_horizontal_2018_8);
+        map.addLayer(layer_horizontal_2018_8);
+
+        function pop_horizontal_2017_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">X</th>\
+                        <td>' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Y</th>\
+                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Z</th>\
+                        <td>' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stasiun</th>\
+                        <td>' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Arah Horizontal</th>\
+                        <td>' + (feature.properties['Arah Horizontal'] !== null ? autolinker.link(feature.properties['Arah Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kecepatan Horizontal</th>\
+                        <td>' + (feature.properties['Kecepatan Horizontal'] !== null ? autolinker.link(feature.properties['Kecepatan Horizontal'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+
+        function style_horizontal_2017_9_0(feature) {
+        const azimuth = feature.properties['Arah Horizontal'];
+
+            if (feature.properties['Kecepatan Horizontal'] >= 5.958000 && feature.properties['Kecepatan Horizontal'] <= 15.169000 ) {
+                return {
+                pane: 'pane_horizontal_2017_9',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2017_9.svg',
+            iconSize: [22.8, 22.8],
+            iconAnchor: [22.8 / 2, 22.8]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 15.169000 && feature.properties['Kecepatan Horizontal'] <= 21.080000 ) {
+                return {
+                pane: 'pane_horizontal_2017_9',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2017_9.svg',
+            iconSize: [26.6, 26.6],
+            iconAnchor: [26.6 / 2, 26.6]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 21.080000 && feature.properties['Kecepatan Horizontal'] <= 23.344000 ) {
+                return {
+                pane: 'pane_horizontal_2017_9',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2017_9.svg',
+            iconSize: [30.4, 30.4],
+            iconAnchor: [30.4 / 2, 30.4]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 23.344000 && feature.properties['Kecepatan Horizontal'] <= 27.377000 ) {
+                return {
+                pane: 'pane_horizontal_2017_9',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2017_9.svg',
+            iconSize: [34.2, 34.2]
+            ,
+            iconAnchor: [34.2 / 2, 34.2]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 27.377000 && feature.properties['Kecepatan Horizontal'] <= 53.932000 ) {
+                return {
+                pane: 'pane_horizontal_2017_9',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2017_9.svg',
+            iconSize: [38.0, 38.0],
+            iconAnchor: [38.0 / 2, 38.0]
+        }),
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_horizontal_2017_9');
+        map.getPane('pane_horizontal_2017_9').style.zIndex = 411;
+        map.getPane('pane_horizontal_2017_9').style['mix-blend-mode'] = 'normal';
+        var layer_horizontal_2017_9 = new L.geoJson(json_Horizontal2017_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Horizontal2017_4',
+            layerName: 'layer_horizontal_2017_9',
+            pane: 'pane_horizontal_2017_9',
+            onEachFeature: pop_horizontal_2017_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_horizontal_2017_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_horizontal_2017_9);
+        map.addLayer(layer_horizontal_2017_9);
+        
+        function pop_horizontal_2016_10(feature, layer) {
+            var popupContent = '<table>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+            layer.on('click', function () {
+
+            // Masukkan konten ke dalam elemen offcanvasContent
+            var offcanvasContent = document.getElementById('offcanvasContent');
+                if (offcanvasContent) {
+                    offcanvasContent.innerHTML = content;
+                    }
+
+            // Tampilkan offcanvas menggunakan Bootstrap API
+            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight'));
+                offcanvas.show();
+            });
+        }
+
+        function style_horizontal_2016_10_0(feature) {
+
+        const azimuth = feature.properties['Arah Horizontal'];
+
+            if (feature.properties['Kecepatan Horizontal'] >= 5.958000 && feature.properties['Kecepatan Horizontal'] <= 15.169000 ) {
+                return {
+                pane: 'pane_horizontal_2016_10',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2016_10.svg',
+            iconSize: [22.8, 22.8],
+            iconAnchor: [22.8 / 2, 22.8]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 15.169000 && feature.properties['Kecepatan Horizontal'] <= 21.080000 ) {
+                return {
+                pane: 'pane_horizontal_2016_10',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2016_10.svg',
+            iconSize: [26.6, 26.6],
+            iconAnchor: [26.6 / 2, 26.6]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 21.080000 && feature.properties['Kecepatan Horizontal'] <= 23.344000 ) {
+                return {
+                pane: 'pane_horizontal_2016_10',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2016_10.svg',
+            iconSize: [30.4, 30.4],
+            iconAnchor: [30.4 / 2, 30.4]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 23.344000 && feature.properties['Kecepatan Horizontal'] <= 27.377000 ) {
+                return {
+                pane: 'pane_horizontal_2016_10',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2016_10.svg',
+            iconSize: [34.2, 34.2],
+            iconAnchor: [34.2 / 2, 34.2]
+        }),
+                interactive: false,
+            }
+            }
+            if (feature.properties['Kecepatan Horizontal'] >= 27.377000 && feature.properties['Kecepatan Horizontal'] <= 53.932000 ) {
+                return {
+                pane: 'pane_horizontal_2016_10',
+        rotationAngle: azimuth || 0.0,
+        rotationOrigin: 'center bottom',
+        icon: L.icon({
+            iconUrl: 'markers/horizontal_2016_10.svg',
+            iconSize: [38.0, 38.0],
+            iconAnchor: [38.0 / 2, 38.0]
+        }),
+                interactive: false,
+            }
+            }
+        }
+        map.createPane('pane_horizontal_2016_10');
+        map.getPane('pane_horizontal_2016_10').style.zIndex = 412;
+        map.getPane('pane_horizontal_2016_10').style['mix-blend-mode'] = 'normal';
+        var layer_horizontal_2016_10 = new L.geoJson(json_Horizontal2016_5, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Horizontal2016_5',
+            layerName: 'layer_horizontal_2016_10',
+            pane: 'pane_horizontal_2016_10',
+            onEachFeature: pop_horizontal_2016_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_horizontal_2016_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_horizontal_2016_10);
+        map.addLayer(layer_horizontal_2016_10);
+
+        //CORS
+        function pop_CORSSulawesi_13(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Name</th>\
+                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+            layer.on('click', function () {
+
+            // Masukkan konten ke dalam elemen offcanvasContent
+            var offcanvasContent = document.getElementById('offcanvasContent');
+                if (offcanvasContent) {
+                     offcanvasContent.innerHTML = content;
+                }
+
+            // Tampilkan offcanvas menggunakan Bootstrap API
+            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight'));
+                offcanvas.show();
+            });
+        }
+
+        function style_CORSSulawesi_13_0() {
+            return {
+                pane: 'pane_CORSSulawesi_3',
+            rotationAngle: 0.0,
+            rotationOrigin: 'center center',
+            icon: L.icon({
+            iconUrl: 'markers/CORSSulawesi_3.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            
+            }
+        }
+        map.createPane('pane_CORSSulawesi_3');
+        map.getPane('pane_CORSSulawesi_3').style.zIndex = 413;
+        map.getPane('pane_CORSSulawesi_3').style['mix-blend-mode'] = 'normal';
+        var layer_CORSSulawesi_3 = new L.geoJson(json_CORSSulawesi_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CORSSulawesi_3',
+            layerName: 'layer_CORSSulawesi_3',
+            pane: 'pane_CORSSulawesi_3',
+            onEachFeature: pop_CORSSulawesi_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CORSSulawesi_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CORSSulawesi_3);
+        map.addLayer(layer_CORSSulawesi_3);
+        
+        function pop_CORS2018_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Bujur</th>\
+                        <td class="visible-with-data" id="Bujur">' + (feature.properties['Bujur'] !== null ? autolinker.link(feature.properties['Bujur'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Lintang </th>\
+                        <td class="visible-with-data" id="Lintang ">' + (feature.properties['Lintang '] !== null ? autolinker.link(feature.properties['Lintang '].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Tinggi</th>\
+                        <td class="visible-with-data" id="Tinggi">' + (feature.properties['Tinggi'] !== null ? autolinker.link(feature.properties['Tinggi'].toLocaleString()) + '   meter': '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Stasiun</th>\
+                        <td class="visible-with-data" id="Stasiun">' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Arah Horizontal</th>\
+                        <td class="visible-with-data" id="Arah Horiz">' + (feature.properties['Arah Horiz'] !== null ? autolinker.link(feature.properties['Arah Horiz'].toLocaleString()) + '   °' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Horizontal</th>\
+                        <td class="visible-with-data" id="Kecepatan">' + (feature.properties['Kecepatan'] !== null ? autolinker.link(feature.properties['Kecepatan'].toLocaleString()) + '   mm/tahun' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Arah Vertikal</th>\
+                        <td class="visible-with-data" id="Arah Verti">' + (feature.properties['Arah Verti'] !== null ? autolinker.link(feature.properties['Arah Verti'].toLocaleString()) + '   mm/tahun' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Vertikal</th>\
+                        <td class="visible-with-data" id="Kecepatn1">' + (feature.properties['Kecepatan'] !== null ? autolinker.link(feature.properties['Kecepatn1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Gambar</th>\
+                        <td class="visible-with-data" id="Gambar">' + (feature.properties['Gambar'] !== null ? '<img src="images/' + String(feature.properties['Gambar']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Time Series</th>\
+                        <td class="visible-with-data" id="Stdev">' + (feature.properties['Stdev'] !== null ? '<img src="images/' + String(feature.properties['Stdev']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+            layer.on('click', function () {
+
+            // Masukkan konten ke dalam elemen offcanvasContent
+            var offcanvasContent = document.getElementById('offcanvasContent');
+                if (offcanvasContent) {
+                    offcanvasContent.innerHTML = content;
+                    }
+
+            // Tampilkan offcanvas menggunakan Bootstrap API
+            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight'));
+                offcanvas.show();
+            });
+        }
+        function style_CORS2018_4_0() {
+            return {
+                pane: 'pane_CORS2018_4',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/CORS2018_4.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CORS2018_4');
+        map.getPane('pane_CORS2018_4').style.zIndex = 414;
+        map.getPane('pane_CORS2018_4').style['mix-blend-mode'] = 'normal';
+        var layer_CORS2018_4 = new L.geoJson(json_CORS2018_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CORS2018_4',
+            layerName: 'layer_CORS2018_4',
+            pane: 'pane_CORS2018_4',
+            onEachFeature: pop_CORS2018_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CORS2018_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CORS2018_4);
+        map.addLayer(layer_CORS2018_4);
+
+        function pop_CORS2017_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Stasiun</th>\
+                        <td class="visible-with-data" id="Stasiun">' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Lintang</th>\
+                        <td class="visible-with-data" id="Lintang">' + (feature.properties['Lintang'] !== null ? autolinker.link(feature.properties['Lintang'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Bujur</th>\
+                        <td class="visible-with-data" id="Bujur">' + (feature.properties['Bujur'] !== null ? autolinker.link(feature.properties['Bujur'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Tinggi</th>\
+                        <td class="visible-with-data" id="Tinggi">' + (feature.properties['Tinggi'] !== null ? autolinker.link(feature.properties['Tinggi'].toLocaleString())+ '   meter' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Arah Horizontal</th>\
+                        <td class="visible-with-data" id="Arah Horiz">' + (feature.properties['Arah Horiz'] !== null ? autolinker.link(feature.properties['Arah Horiz'].toLocaleString()) + '   °' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Horizontal</th>\
+                        <td class="visible-with-data" id="Kecepatan">' + (feature.properties['Kecepatan'] !== null ? autolinker.link(feature.properties['Kecepatan'].toLocaleString())+ '   mm/tahun' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Vertikal</th>\
+                        <td class="visible-with-data" id="Kecepata_1">' + (feature.properties['Kecepata_1'] !== null ? autolinker.link(feature.properties['Kecepata_1'].toLocaleString()) + '   mm/tahun' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Gambar</th>\
+                        <td class="visible-with-data" id="Gambar">' + (feature.properties['Gambar'] !== null ? '<img src="images/' + String(feature.properties['Gambar']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Time Series</th>\
+                        <td class="visible-with-data" id="Stdev">' + (feature.properties['Stdev'] !== null ? '<img src="images/' + String(feature.properties['Stdev']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+            layer.on('click', function () {
+
+            // Masukkan konten ke dalam elemen offcanvasContent
+            var offcanvasContent = document.getElementById('offcanvasContent');
+                if (offcanvasContent) {
+                    offcanvasContent.innerHTML = content;
+                    }
+
+            // Tampilkan offcanvas menggunakan Bootstrap API
+            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight'));
+                offcanvas.show();
+            });
+        }
+        function style_CORS2017_5_0() {
+            return {
+                pane: 'pane_CORS2017_5',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/CORS2017_5.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CORS2017_5');
+        map.getPane('pane_CORS2017_5').style.zIndex = 415;
+        map.getPane('pane_CORS2017_5').style['mix-blend-mode'] = 'normal';
+        var layer_CORS2017_5 = new L.geoJson(json_CORS2017_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CORS2017_5',
+            layerName: 'layer_CORS2017_5',
+            pane: 'pane_CORS2017_5',
+            onEachFeature: pop_CORS2017_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CORS2017_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CORS2017_5);
+        map.addLayer(layer_CORS2017_5);
+        function pop_CORS2016_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Stasiun</th>\
+                        <td class="visible-with-data" id="Stasiun">' + (feature.properties['Stasiun'] !== null ? autolinker.link(feature.properties['Stasiun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Lintang</th>\
+                        <td class="visible-with-data" id="Lintang">' + (feature.properties['Lintang'] !== null ? autolinker.link(feature.properties['Lintang'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Bujur</th>\
+                        <td class="visible-with-data" id="Bujur">' + (feature.properties['Bujur'] !== null ? autolinker.link(feature.properties['Bujur'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Tinggi</th>\
+                        <td class="visible-with-data" id="Tinggi">' + (feature.properties['Tinggi'] !== null ? autolinker.link(feature.properties['Tinggi'].toLocaleString()) + '   meter' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Arah Horizontal</th>\
+                        <td class="visible-with-data" id="Arah Horiz">' + (feature.properties['Arah Horiz'] !== null ? autolinker.link(feature.properties['Arah Horiz'].toLocaleString()) + '   °' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Horizontal</th>\
+                        <td class="visible-with-data" id="Kecepatan ">' + (feature.properties['Kecepatan '] !== null ? autolinker.link(feature.properties['Kecepatan '].toLocaleString()) + '   mm/tahun': '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; padding-right: 10px; text-align: left;">Kecepatan Vertikal</th>\
+                        <td class="visible-with-data" id="Kecepatan _1">' + (feature.properties['Kecepatan _1'] !== null ? autolinker.link(feature.properties['Kecepatan _1'].toLocaleString()) + '   mm/tahun' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Gambar</th>\
+                        <td class="visible-with-data" id="Gambar">' + (feature.properties['Gambar'] !== null ? '<img src="images/' + String(feature.properties['Gambar']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row"style="padding: 7px; text-align: left;">Time Series</th>\
+                        <td class="visible-with-data" id="Stdev">' + (feature.properties['Stdev'] !== null ? '<img src="images/' + String(feature.properties['Stdev']).replace(/[\\\/:]/g, '_').trim() + '"style="width: 100%; height: auto;">' : '') + '</td>\
+                    </tr>\
+                </table>';
+                var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+            layer.on('click', function () {
+
+            // Masukkan konten ke dalam elemen offcanvasContent
+            var offcanvasContent = document.getElementById('offcanvasContent');
+                if (offcanvasContent) {
+                    offcanvasContent.innerHTML = content;
+                    }
+
+            // Tampilkan offcanvas menggunakan Bootstrap API
+            var offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasRight'));
+                offcanvas.show();
+            });
+        }
+        function style_CORS2016_16_0() {
+            return {
+            pane: 'pane_CORS2016_6',
+            rotationAngle: 0.0,
+            rotationOrigin: 'center center',
+            icon: L.icon({
+            iconUrl: 'markers/CORS2016_6.svg',
+            iconSize: [19.0, 19.0]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CORS2016_6');
+        map.getPane('pane_CORS2016_6').style.zIndex = 417;
+        map.getPane('pane_CORS2016_6').style['mix-blend-mode'] = 'normal';
+        var layer_CORS2016_6 = new L.geoJson(json_CORS2016_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CORS2016_6',
+            layerName: 'layer_CORS2016_6',
+            pane: 'pane_CORS2016_6',
+            onEachFeature: pop_CORS2016_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_CORS2016_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CORS2016_6);
+        map.addLayer(layer_CORS2016_6);
+
+
+        function pop_SesarSulawesi_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Fault</th>\
+                        <td class="visible-with-data" id="Fault">' + (feature.properties['Fault'] !== null ? autolinker.link(feature.properties['Fault'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LENGTH_KM</th>\
+                        <td class="visible-with-data" id="LENGTH_KM">' + (feature.properties['LENGTH_KM'] !== null ? autolinker.link(feature.properties['LENGTH_KM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">sliprate</th>\
+                        <td class="visible-with-data" id="sliprate">' + (feature.properties['sliprate'] !== null ? autolinker.link(feature.properties['sliprate'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SesarSulawesi_1_0(feature) {
+            switch(String(feature.properties['sliprate'])) {
+                case '0.1':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(230,255,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '1.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(233,243,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '2.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(236,231,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '3.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(239,219,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '33.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(243,207,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '4.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(246,194,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '45.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(249,182,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case '6.0':
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(252,170,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_SesarSulawesi_1',
+                opacity: 1,
+                color: 'rgba(255,158,1,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_SesarSulawesi_1');
+        map.getPane('pane_SesarSulawesi_1').style.zIndex = 416;
+        map.getPane('pane_SesarSulawesi_1').style['mix-blend-mode'] = 'normal';
+        var layer_SesarSulawesi_1 = new L.geoJson(json_SesarSulawesi_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SesarSulawesi_1',
+            layerName: 'layer_SesarSulawesi_1',
+            pane: 'pane_SesarSulawesi_1',
+            onEachFeature: pop_SesarSulawesi_1,
+            style: style_SesarSulawesi_1_0,
+        });
+        bounds_group.addLayer(layer_SesarSulawesi_1);
+        map.addLayer(layer_SesarSulawesi_1);
+
+        
+        var overlaysTree = [
+            {label: "OpenStreetMap", layer: layer_OpenStreetMap_2, radioGroup: 'bm' },
+            {label: "ESRI Gray (dark)", layer: layer_ESRIGraydark_1,radioGroup: 'bm'},
+            {label: "Esri World Imagery", layer: layer_EsriWorldImagery_0,radioGroup: 'bm'},
+        ]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            collapsed: true,
+        });
+        lay.addTo(map);
+        setBounds();
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="js/legenda.js"></script>
+    <script src="js/sidebar.js"></script>
+    
+    </body>
+    
+</html>
